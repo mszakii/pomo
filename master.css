@@ -1,0 +1,17 @@
+body {
+  background: rgb(217, 85, 80);
+  user-select: none;
+}
+
+.timer {
+  color: #fff;
+  font-family: cairo;
+  font-size: 10vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
