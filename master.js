@@ -10,23 +10,24 @@ function counter(count) {
   let milSec = count * 60;
 
   let countDown = setInterval(() => {
-    milSec--;
-    let min = Math.floor(milSec / 60);
-    if (min < 10) {
-      min = `0${Math.floor(milSec / 60)}`;
+    if (milSec == 0) {
+      clearInterval(countDown);
+      finiS.play();
+    } else {
+      milSec--;
+      let min = Math.floor(milSec / 60);
+      if (min < 10) {
+        min = `0${Math.floor(milSec / 60)}`;
+      }
+      let sec = milSec % 60;
+      if (sec < 10) {
+        sec = `0${milSec % 60}`;
+      }
+      minDiv.innerHTML = min;
+      secDiv.innerHTML = sec;
+      document.title = `${min}:${sec} Pomodoro`;
     }
-    let sec = milSec % 60;
-    if (sec < 10) {
-      sec = `0${milSec % 60}`;
-    }
-    minDiv.innerHTML = min;
-    secDiv.innerHTML = sec;
-    document.title = `${min}:${sec} Pomodoro`;
   }, 1000);
-
-  if (milSec == 0) {
-    clearInterval(countDown);
-  }
 }
 
 // contorlers
@@ -70,6 +71,7 @@ function checkKey(e) {
 timer.onclick = function () {
   if (started !== true) {
     counter(count);
+    startS.play();
   }
 };
 
