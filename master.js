@@ -12,7 +12,7 @@ function counter(count) {
   let countDown = setInterval(() => {
     if (milSec == 0) {
       clearInterval(countDown);
-      finiS.play();
+      finishS.play();
     } else {
       milSec--;
       let min = Math.floor(milSec / 60);
