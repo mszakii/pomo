@@ -2,6 +2,8 @@
 let timer = document.getElementById("timer");
 let minDiv = document.getElementById("minDiv");
 let secDiv = document.getElementById("secDiv");
+let finishS = document.getElementById("finishS");
+let clickS = document.getElementById("clickS");
 let started = false;
 
 function counter(count) {
@@ -63,6 +65,7 @@ function checkKey(e) {
         secDiv.innerHTML = "00";
       }
     } else if (e.keyCode == "32") {
+      clickS.play();
       counter(count);
     }
   }
@@ -70,8 +73,8 @@ function checkKey(e) {
 
 timer.onclick = function () {
   if (started !== true) {
+    clickS.play();
     counter(count);
-    startS.play();
   }
 };
 
