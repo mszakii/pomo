@@ -11,6 +11,12 @@ function counter(count) {
 
   let milSec = count * 60;
 
+  Notification.requestPermission().then((prem) => {
+    if (prem === "granted") {
+      new Notification(`Pomodoro started ${count} minutes`);
+    }
+  });
+
   let countDown = setInterval(() => {
     if (milSec == 0) {
       clearInterval(countDown);
