@@ -13,7 +13,9 @@ function counter(count) {
 
   Notification.requestPermission().then((prem) => {
     if (prem === "granted") {
-      new Notification(`Pomodoro started ${count} minutes`);
+      new Notification(`Pomodoro started ${count} minutes`, {
+        icon: "https://mszakii.github.io/pomo/logo.png",
+      });
     }
   });
 
@@ -21,6 +23,13 @@ function counter(count) {
     if (milSec == 0) {
       clearInterval(countDown);
       finishS.play();
+      Notification.requestPermission().then((prem) => {
+        if (prem === "granted") {
+          new Notification(`Pomodoro finished`, {
+            icon: "https://mszakii.github.io/pomo/logo.png",
+          });
+        }
+      });
     } else {
       milSec--;
       let min = Math.floor(milSec / 60);
